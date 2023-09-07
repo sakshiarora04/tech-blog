@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Post, User } = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 // route to get all posts
 router.get('/', async (req, res) => {
   // We find all posts in the db
@@ -14,7 +14,10 @@ router.get('/', async (req, res) => {
       ],
     });
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.render('homepage', { posts });
+    res.render('homepage', {
+      posts,
+      logged_in: req.session.logged_in,
+    });
   } catch (error) {
     res.status(500).json(error);
   }
@@ -35,24 +38,25 @@ router.get('/signup', (req, res) => {
   }
   res.render('signup');
 });
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Post }],
+    });
 
-// router.get('/login', async (req, res) => {
-//   // If the user is already logged in, redirect the request to another route
-//   try {
-//     // const categoryData = await Category.findAll();
-//     // const categories = categoryData.map((category) =>
-//     //   category.get({ plain: true })
-//     // );
-//     if (req.session.logged_in) {
-//       res.redirect('/profile');
-//       return;
-//     }
-//     //pass category list
-//     res.redirect('/login');
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    const user = userData.get({ plain: true });
+
+    res.render('profile', {
+      ...user,
+      layout:'dashboard',
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // // route to get all categories and recipies
 // router.get('/', async (req, res) => {

@@ -5,18 +5,17 @@
     <header>
        {{> nav}}
       <div class="logo">
-        <h2 class="title-tech"><a href="#"> The Tech Blog</a> </h2>
+        <h1 class="title-tech"><a href="#"> Your Dashboard</a> </h1>
       </div>
       </header>
-   
 <div class="align-grid">
-
+<div class="grid-container">
         {{{body}}}
-
+</div>
 </div>
     {{#if logged_in}}
       <script src='/js/logout.js'></script>
     {{/if}}
-    
+   
   </body>
 </html>

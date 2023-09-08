@@ -97,6 +97,11 @@ body {
 .form-group{
   margin-bottom: 10px;
 }
+#text-box{
+  border: 2px solid var(--button-color);
+  border-radius: .3rem;
+
+}
 .btn-submit {
   background-color: var(--button-color);
   width: 100%;

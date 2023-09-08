@@ -61,21 +61,26 @@ body {
   color: var(--dark);
   text-decoration: none;
 }
-.card-form {
-  border: 3px solid var(--dark);
+.card-form, .post-title{
   width: 90%;
   margin: 1%;
   border-radius: .5rem;
 }
-.card-header {
-  background-color: var(--dark);
+.card-form{
+  border: 3px solid var(--dark);
+
+}
+.card-header, .post-title {
   padding: 1% 2%;
-  min-height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.card-header a{
+.card-header{
+ background-color: var(--dark);
+  min-height: 50px;   
+}
+.card-header a,.post-title a{
   display: inline-block;
   text-decoration: none;
   color: var(--text-color);
@@ -85,6 +90,15 @@ body {
   padding: 2%;
   color: var(--dark);
 
+}
+.post-title{
+  background-color: var(--light-brown);
+  min-height: 70px;
+  align-items: center;
+  margin-top: 2%;
+}
+.post-title:hover{
+  background-color: var(--dark);
 }
 .form-label,
 .form-input {
@@ -97,6 +111,10 @@ body {
 .form-group{
   margin-bottom: 10px;
 }
+.welcome{
+  color: var(--dark);
+}
+
 #text-box{
   border: 2px solid var(--button-color);
   border-radius: .3rem;
@@ -114,4 +132,16 @@ body {
 }
 .nav-link:hover{
   color:var(--light-brown);
+}
+.new-post-btn{
+  background-color: var(--dark);
+  color: var(--text-color);
+}
+footer{
+  color: var(--light-brown);
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  position: fixed;
 }

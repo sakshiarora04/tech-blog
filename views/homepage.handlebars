@@ -1,17 +1,6 @@
 <!-- Loop over each object in the posts array -->
+  {{#if posts.length}}
 {{#each posts as |post|}}
-  <div class='card-form'>
-    <div class='card-header'><a href='/post/{{post.id}}'><h4
-        >{{post.name}}</h4></a>
-      <span>Posted by
-        {{post.user.name}}
-        on
-        {{format_date post.date_created}}</span></div>
-    <div class='card-body'>
-      <p>
-        {{post.description}}
-      </p>
-    </div>
-
-  </div>
+{{> post-content}}
 {{/each}}
+ {{/if}}

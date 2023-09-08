@@ -50,7 +50,6 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
-      layout: 'dashboard',
       logged_in: true,
     });
   } catch (err) {
@@ -70,9 +69,9 @@ router.get('/post/:id', async (req, res) => {
       ],
     });
     const post = postData.get({ plain: true });
-    console.log(postData);
     res.render('one-post', {
       post,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);

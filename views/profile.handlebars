@@ -1,45 +1,39 @@
-
-<div class="row">
-  <div class="col-auto">
+<div class='row'>
+  <div class='col-auto welcome'>
     <h2>Welcome, {{name}}!</h2>
+    <h3>Your Posts</h3>
   </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New post:</h3>
+{{#if posts.length}}
+  {{#each posts as |post|}}
 
-    <form class="form new-post-form">
-      <div class="form-group">
-        <label for="post-name">post name:</label>
-        <input class="form-input" type="text" id="post-name" name="post-name" />
-      </div>    
-      <div class="form-group">
-        <label for="post-desc">description:</label>
-        <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+    <div class='post-title'>
+      <div class='col-md-10'>
+        <a href='/post/{{id}}'><h4>{{name}}</h4></a>
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+      <div class='col-md-2'>
+        <span>
+          {{format_date date_created}}
+        </span>
       </div>
-    </form>
-  </div>
 
-  {{#if posts.length}}
-  <div class="col-md-6 post-list">
-    <h3>Current posts:</h3>
+    </div>
 
-    {{#each posts as |post|}}
-    <div class="row mb-2">
+  {{/each}}
+{{/if}}
+
+{{!-- <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
       </div>
-    </div>
-    {{/each}}
-  </div>
-  {{/if}}
-</div>
+    </div> --}}
+{{!-- {{/each}} --}}
+{{! </div> }}
+{{!-- {{/if}} --}}
+{{! </div> }}
 
-<script src="./js/profile.js"></script>
+<script src='./js/profile.js'></script>

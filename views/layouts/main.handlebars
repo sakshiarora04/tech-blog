@@ -1,22 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-{{> head}}
+<html lang='en'>
+  {{> head}}
   <body>
     <header>
-       {{> nav}}
-      <div class="logo">
-        <h2 class="title-tech"><a href="/"> The Tech Blog</a> </h2>
+      {{> nav}}
+      <div class='logo'>
+        <h2 class='title-tech'>
+          {{#if logged_in}}
+            <a href='/profile'> Your Dashboard</a>
+          {{else}}
+            <a href='/'> The Tech Blog</a>
+          {{/if}}
+        </h2>
       </div>
-      </header>
+    </header>
+
+    <div class='align-grid'>
+      {{{body}}}
+    </div>
    
-<div class="align-grid">
-        {{{body}}}
-</div>
     {{#if logged_in}}
-      <script src='/js/logout.js'></script>
-    {{/if}}
     <footer>
+      <div class='new-post'>
+        <button type='submit' class='btn new-post-btn' id='add-new-post'>+New Post</button>
+      </div>
+   
+    </footer>
+      <script src='/js/logout.js'></script>
+      {{else}}
+       <footer>      
       @The Tech Blog Folks
     </footer>
+    {{/if}}
+
   </body>
 </html>

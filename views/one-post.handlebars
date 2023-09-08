@@ -1,50 +1,35 @@
 <!-- Loop over each object in the posts array -->
+{{>post-content post}}
 
-  <div class='card-form'>
-    <div class='card-header'><a href='/post/{{post.id}}'><h4
-        >{{post.name}}</h4></a>
-      <span>Posted by
-        {{post.user.name}}
-        on
-        {{format_date post.date_created}}</span></div>
-    <div class='card-body'>
-      <p>
-        {{post.description}}
-      </p>
-    </div>
-
+<div class='card-form'>
+  <div class='card-header'></div>
+  <div class='card-body'>
+    <p>
+      {{post.comments}}
+    </p>
+    <p>
+      {{post.comments.user}},{{format_date post.date_created}}
+    </p>
   </div>
-  <div class='card-form'>
-    <div class='card-header'></div>
-    <div class='card-body'>
-      <p>
-        {{post.comments}}
-      </p>
-      <p>
-        {{post.comments.user}},{{format_date post.date_created}}
-      </p>
-    </div>
 
+</div>
+<div class='card-form'>
+  <div class='card-header'></div>
+  <div class='card-body'>
+    <p>
+      Comments:
+    </p>
+    <form class='new-comment-form' id='comments'>
+      <div class='form-group'>
+        {{! input value to pass recipe id }}
+        <input type='hidden' name='comment' value='{{recipe.id}}' />
+        <textarea
+          class='form-input'
+          id='text-box'
+          name='post-comments'
+        ></textarea>
+        <button type='submit' class='btn btn-submit comment-btn'>Submit</button>
+      </div>
+    </form>
   </div>
-  <div class='card-form'>
-    <div class='card-header'></div>
-    <div class='card-body'>
-      <p>
-        Comments:
-      </p>
-      <form class='new-comment-form' id='comments'>
-        <div class='form-group'>
-          {{!-- input value to pass recipe id --}}
-          <input type='hidden' name='comment' value='{{recipe.id}}' />
-          <textarea
-            class='form-input'
-            id='text-box'
-            name='post-comments'
-          ></textarea>
-          <button
-            type='submit'
-            class='btn btn-submit comment-btn'
-          >Submit</button>
-        </div>
-      </form>
-    </div>
+</div>

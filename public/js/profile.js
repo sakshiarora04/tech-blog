@@ -20,7 +20,18 @@ const newFormHandler = async (event) => {
     }
   }
 };
+const addPostHandler = async (event) => {
+  event.preventDefault();
 
+  document.location.replace('/dashboard/add');
+};
+
+document
+  .querySelector('#add-new-post')
+  .addEventListener('click', addPostHandler);
+document
+  .querySelector('.new-post-form')
+  .addEventListener('submit', newFormHandler);
 // const delButtonHandler = async (event) => {
 //   if (event.target.hasAttribute('data-id')) {
 //     const id = event.target.getAttribute('data-id');
@@ -36,10 +47,6 @@ const newFormHandler = async (event) => {
 //     }
 //   }
 // };
-
-document
-  .querySelector('.new-post-form')
-  .addEventListener('submit', newFormHandler);
 
 // document
 //   .querySelector('.post-list')

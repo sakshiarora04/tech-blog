@@ -95,7 +95,6 @@ body {
   background-color: var(--light-brown);
   min-height: 70px;
   align-items: center;
-  margin-top: 2%;
 }
 .post-title:hover{
   background-color: var(--dark);

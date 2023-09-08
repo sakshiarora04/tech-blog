@@ -1,7 +1,7 @@
 <div class='row'>
   <div class='col-auto welcome'>
     <h2>Welcome, {{name}}!</h2>
-    <h3>Your Posts</h3>
+    <h3>Your Posts:</h3>
   </div>
 </div>
 
@@ -22,7 +22,11 @@
 
   {{/each}}
 {{/if}}
-
+ <footer>      
+        <button type='submit' class='btn new-post-btn' id='add-new-post'>+New Post</button>
+     
+   
+    </footer>
 {{!-- <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
@@ -36,4 +40,4 @@
 {{!-- {{/if}} --}}
 {{! </div> }}
 
-<script src='./js/profile.js'></script>
+<script src='./js/dashboard.js'></script>

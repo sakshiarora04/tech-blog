@@ -6,7 +6,7 @@
       <div class='logo'>
         <h2 class='title-tech'>
           {{#if logged_in}}
-            <a href='/profile'> Your Dashboard</a>
+            <a href='/dashboard'> Your Dashboard</a>
           {{else}}
             <a href='/'> The Tech Blog</a>
           {{/if}}
@@ -19,12 +19,7 @@
     </div>
    
     {{#if logged_in}}
-    <footer>
-      <div class='new-post'>
-        <button type='submit' class='btn new-post-btn' id='add-new-post'>+New Post</button>
-      </div>
    
-    </footer>
       <script src='/js/logout.js'></script>
       {{else}}
        <footer>      

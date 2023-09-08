@@ -65,20 +65,22 @@ body {
   border: 3px solid var(--dark);
   width: 90%;
   margin: 1%;
-  flex-direction: row;
+  border-radius: .5rem;
 }
 .card-header {
   background-color: var(--dark);
   padding: 1% 2%;
+  min-height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .card-header a{
   display: inline-block;
   text-decoration: none;
   color: var(--text-color);
 }
-.card-header span{
-  float: right;
-}
+
 .card-body {
   padding: 2%;
   color: var(--dark);
@@ -99,5 +101,12 @@ body {
   background-color: var(--button-color);
   width: 100%;
   margin-top: 10px;
-  /* color:var(--text-color) */
+  color:var(--text-color)
+}
+.btn-submit:hover{
+  background-color: var(--dark);
+  color: var(--text-color);
+}
+.nav-link:hover{
+  color:var(--light-brown);
 }

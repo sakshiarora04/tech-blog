@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 // route to get all posts
 router.get('/', async (req, res) => {
@@ -50,8 +50,29 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
-      layout:'dashboard',
-      logged_in: true
+      layout: 'dashboard',
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+router.get('/post/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: Comment,
+          include: {
+            model: User,
+          },
+        },
+      ],
+    });
+    const post = postData.get({ plain: true });
+    console.log(postData);
+    res.render('one-post', {
+      post,
     });
   } catch (err) {
     res.status(500).json(err);

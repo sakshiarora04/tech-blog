@@ -1,6 +1,6 @@
 <div class='row'>
   <div class='col-auto welcome'>
-    <h2>Welcome, {{name}}!</h2>
+    <h2>Welcome, {{post.user.username}}!</h2>
     <h3>Your Posts:</h3>
   </div>
 </div>
@@ -10,7 +10,7 @@
 
     <div class='post-title'>
       <div class='col-md-10'>
-        <a href='/post/{{id}}'><h4>{{post.title}}</h4></a>
+        <a href='/dashboard/edit/{{post.id}}'><h4>{{post.title}}</h4></a>
       </div>
       <div class='col-md-2'>
         <span>

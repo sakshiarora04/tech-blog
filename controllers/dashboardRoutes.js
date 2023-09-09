@@ -1,40 +1,50 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../models');
+const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 // route to get all posts
 
 router.get('/', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Post }],
+    const postData = await Post.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
     });
 
-    const user = userData.get({ plain: true });
-
+    const posts = postData.map((post) => post.get({ plain: true }));
     res.render('dashboard', {
-      ...user,
+      posts,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-router.get('/post/:id', async (req, res) => {
+router.get('/edit/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
+        // {
+        //   model: Comment,
+        //   include: {
+        //     model: User,
+        //     attributes: ['username'],
+        //   },
+        // },
         {
-          model: Comment,
-          include: {
-            model: User,
-          },
+          model: User,
         },
       ],
     });
     const post = postData.get({ plain: true });
-    res.render('one-post', {
+    res.render('edit-delete', {
       post,
       logged_in: req.session.logged_in,
     });

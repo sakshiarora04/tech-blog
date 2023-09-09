@@ -1,28 +1,29 @@
 <!-- Loop over each object in the posts array -->
 {{>post-content post}}
+{{#if post.comments}}
+  <div class='card-form'>
 
-<div class='card-form'>
-  <div class='card-header'></div>
-  <div class='card-body'>
-    <p>
-      {{post.comments}}
-    </p>
-    <p>
-      {{post.comments.user}},{{format_date post.date_created}}
-    </p>
+    <div class='card-header'>All Comments:</div>
+    <div class='card-body'>
+      <div class='all-comments'>
+        {{! check condition to show all comments }}
+        {{#each post.comments as |comment|}}
+          {{>comment}} 
+        {{/each}}
+      </div>      
+    </div>
   </div>
-
-</div>
+{{/if}}
 <div class='card-form'>
   <div class='card-header'></div>
   <div class='card-body'>
     <p>
-      Comments:
+      Comment
     </p>
     <form class='new-comment-form' id='comments'>
       <div class='form-group'>
-        {{! input value to pass recipe id }}
-        <input type='hidden' name='comment' value='{{recipe.id}}' />
+        {{! input value to pass post id }}
+        <input type='hidden' name='comment' value='{{post.id}}' />
         <textarea
           class='form-input'
           id='text-box'
@@ -33,3 +34,7 @@
     </form>
   </div>
 </div>
+{{#if logged_in}}
+
+  <script src='/js/comment.js'></script>
+{{/if}}

@@ -10,11 +10,11 @@
 
     <div class='post-title'>
       <div class='col-md-10'>
-        <a href='/post/{{id}}'><h4>{{name}}</h4></a>
+        <a href='/post/{{id}}'><h4>{{post.title}}</h4></a>
       </div>
       <div class='col-md-2'>
         <span>
-          {{format_date date_created}}
+          {{format_date post.date_created}}
         </span>
       </div>
 

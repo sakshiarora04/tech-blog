@@ -1,20 +1,20 @@
 const { Post } = require('../models');
 const postData = [
   {
-    name: 'Music Near Me',
-    description:
+    title: 'Music Near Me',
+    content:
       'A mobile app that will send you notifications whenever a concert is playing in your area.',
     user_id: 2,
   },
   {
-    name: 'The Ultimate Tech Quiz',
-    description:
+    title: 'The Ultimate Tech Quiz',
+    content:
       'A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!',
     user_id: 3,
   },
   {
-    name: 'Roll Em Up',
-    description:
+    title: 'Roll Em Up',
+    content:
       'A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.',
     user_id: 1,
   },

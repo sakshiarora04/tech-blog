@@ -9,9 +9,10 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
       ],
+      order: [['date_created', 'ASC']]
     });
     const posts = postData.map((post) => post.get({ plain: true }));
     res.render('homepage', {
@@ -47,7 +48,11 @@ router.get('/post/:id', async (req, res) => {
           model: Comment,
           include: {
             model: User,
+            attributes: ['username'],
           },
+        },
+        {
+          model: User,
         },
       ],
     });

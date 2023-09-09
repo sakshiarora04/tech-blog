@@ -11,12 +11,19 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [1, 50],
+      },
     },
-    description: {
+    content: {
       type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1],
+      },
     },
     date_created: {
       type: DataTypes.DATE,

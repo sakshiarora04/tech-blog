@@ -17,7 +17,6 @@ Comment.init(
       references: {
         model: 'post',
         key: 'id',
-        unique: false,
       },
     },
     user_id: {
@@ -29,6 +28,15 @@ Comment.init(
     },
     body: {
       type: DataTypes.STRING,
+      allowNull:false
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+      validate: {
+        isDate: true,
+      },
     },
   },
   {

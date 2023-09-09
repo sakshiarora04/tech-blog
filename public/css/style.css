@@ -113,6 +113,11 @@ body {
 .welcome{
   color: var(--dark);
 }
+.comments-text {
+  border: 2px solid rgb(141, 138, 138);
+  padding: 10px;
+  margin-bottom: 10px;;
+}
 
 #text-box{
   border: 2px solid var(--button-color);

@@ -15,7 +15,7 @@ A CMS style blog site, which allows users to publish their blog posts and commen
 
 ## Installation
 
-Visit the live site at heroku or
+Visit the live site at heroku link https://tech-blogpost-6c7d5895dab3.herokuapp.com/ or
 
 To run locally on command line
 

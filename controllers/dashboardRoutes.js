@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
-// route to get all posts
 
+// route to get all posts
 router.get('/', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
+    // Find all posts of logged in user based on the session ID
     const postData = await Post.findAll({
       where: {
         user_id: req.session.user_id,
@@ -27,6 +27,7 @@ router.get('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+//edit post
 router.get('/edit/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {

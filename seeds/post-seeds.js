@@ -1,21 +1,27 @@
 const { Post } = require('../models');
 const postData = [
   {
-    title: 'Music Near Me',
+    title: 'Why MVC is so important',
     content:
-      'A mobile app that will send you notifications whenever a concert is playing in your area.',
+      'A major advantage of the MVC pattern is that it simplifies the testing process by a great deal. It makes it easier to debug large-scale applications as multiple levels are structurally defined and properly written in the application. Thus making it trouble-free to develop an application with unit tests',
     user_id: 2,
   },
   {
-    title: 'The Ultimate Tech Quiz',
+    title: 'Authentication vs authorization',
     content:
-      'A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!',
+      'uthentication is the process of verifying who someone is, whereas authorization is the process of verifying what specific applications, files, and data a user has access to.',
     user_id: 3,
   },
   {
-    title: 'Roll Em Up',
+    title: 'Object Relational Mapping',
     content:
-      'A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.',
+      'Object Relational Mapping (ORM) is a technique used in creating a "bridge" between object-oriented programs and, in most cases, relational databases',
+    user_id: 1,
+  },
+  {
+    title: 'Server Side API',
+    content:
+      'A server-side web API consists of one or more publicly exposed endpoints to a defined request–response message system, typically expressed in JSON or XML by means of an HTTP-based web server.',
     user_id: 1,
   },
 ];

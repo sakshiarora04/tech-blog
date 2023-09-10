@@ -29,7 +29,11 @@
           id='text-box'
           name='post-comments'
         ></textarea>
+        {{#if logged_in}}
         <button type='submit' class='btn btn-submit comment-btn'>Submit</button>
+        {{else}}
+        <button type='submit' onclick="errorMessage()" class='btn btn-submit comment-btn'>Submit</button>
+{{/if}}
       </div>
     </form>
   </div>
@@ -37,4 +41,10 @@
 {{#if logged_in}}
 
   <script src='/js/comment.js'></script>
+ 
 {{/if}}
+<script type="text/javascript">
+        function errorMessage(){
+        alert('you need to login before commenting');
+        }
+    </script>

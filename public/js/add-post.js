@@ -1,9 +1,9 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
-
+  // Collect values from the add post form
   const title = document.querySelector('#post-name').value.trim();
   const content = document.querySelector('#post-desc').value.trim();
-
+  // sending title and content
   if (title && content) {
     const response = await fetch('/api/add-post', {
       method: 'POST',

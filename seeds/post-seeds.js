@@ -3,13 +3,13 @@ const postData = [
   {
     title: 'Why MVC is so important',
     content:
-      'A major advantage of the MVC pattern is that it simplifies the testing process by a great deal. It makes it easier to debug large-scale applications as multiple levels are structurally defined and properly written in the application. Thus making it trouble-free to develop an application with unit tests',
+      'A major advantage of the MVC pattern is that it simplifies the testing process by a great deal. It makes it easier to debug large-scale applications as multiple levels are structurally defined and properly written in the application.',
     user_id: 2,
   },
   {
     title: 'Authentication vs authorization',
     content:
-      'uthentication is the process of verifying who someone is, whereas authorization is the process of verifying what specific applications, files, and data a user has access to.',
+      'Authentication is the process of verifying who someone is, whereas authorization is the process of verifying what specific applications, files, and data a user has access to.',
     user_id: 3,
   },
   {

@@ -16,13 +16,11 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the dashboard page
       document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+      document.getElementById('login-fail').innerHTML = 'Login Failed';
     }
   }
 };
 
-
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
-

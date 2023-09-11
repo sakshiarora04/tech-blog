@@ -34,7 +34,7 @@ To run locally on command line
 4. Create .env file in root directory and enter the required values in DB_USER and DB_PASSWORD
 
    ```
-   DB_NAME='ecommerce_db'
+   DB_NAME='blog_db'
    DB_USER=''
    DB_PASSWORD=''   
    ```   

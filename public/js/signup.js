@@ -17,7 +17,8 @@ const signupFormHandler = async (event) => {
       document.location.replace('/dashboard');
     } else {
       console.log(response);
-      alert(response.statusText);
+      document.getElementById('login-fail').innerHTML = 'sign-up failed, please try again with unique username or password greater than 8 characters';
+
     }
   }
 };
